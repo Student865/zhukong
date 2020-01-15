@@ -17,4 +17,6 @@ void InitGPS_List(void);
 double GetVectorRadian(Position P);
 void GetWheelsSpeed_Cycle(struct Point M, double w0);
 void GetWheelsSpeed_Line(double v, double theta);
+void Run_Line(double v,double theta);
+void Run_Cycle(struct Point M, double w0);
 #endif 
