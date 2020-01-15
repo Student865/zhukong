@@ -406,6 +406,11 @@
               <FileType>1</FileType>
               <FilePath>..\MOVE\pid.c</FilePath>
             </File>
+            <File>
+              <FileName>BasicMovement.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\MOVE\BasicMovement.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

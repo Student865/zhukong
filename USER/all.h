@@ -33,6 +33,7 @@
 #include "can_database.h"
 #include "route.h"
 #include "pid.h"
+#include "BasicMovement.h"
 #include "machine.h"
 #include "diskio.h"
 #include "ff.h"
