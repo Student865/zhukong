@@ -31,6 +31,7 @@
 #include "timer.h"
 #include "can.h"
 #include "can_database.h"
+#include "BasicMovement.h"
 #include "route.h"
 #include "pid.h"
 #include "machine.h"

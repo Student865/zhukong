@@ -406,6 +406,11 @@
               <FileType>1</FileType>
               <FilePath>..\MOVE\pid.c</FilePath>
             </File>
+            <File>
+              <FileName>BasicMovement.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\MOVE\BasicMovement.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -790,6 +795,11 @@
               <FileName>readme.txt</FileName>
               <FileType>5</FileType>
               <FilePath>..\readme.txt</FilePath>
+            </File>
+            <File>
+              <FileName>记录测试代码用.txt</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\记录测试代码用.txt</FilePath>
             </File>
           </Files>
         </Group>

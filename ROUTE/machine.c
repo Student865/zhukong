@@ -5,19 +5,19 @@
 
 
 
-//将轮子调到 WheelDiraction ，角度制
+//将轮子调到 WheelDiraction ，弧度制
 void Set_WheelLoc (int WheelID , double WheelDiraction)
 {
 	Mode[WheelID] = Location_Mode ;
-	set_loc[WheelID] = 8192.0f * 140.0f / 360.0f * WheelDiraction ;
+	set_loc[WheelID] = 8192.0f * 140.0f / 360.0f * WheelDiraction*pi/180.0 ;
 }
 
 
-//赋给轮子速度 ，mm/s
+//赋给轮子速度 ，m/s
 void Set_OdriveSpd ( int WheelID , double OdriveSpeed )
 {
 	double n ; //达到OdriveSpeed所需赋给odrive的对应的值
-	n = OdriveSpeed * 8192.0 /PI / 105.0 ;
+	n = OdriveSpeed * 8192.0 /PI / 0.1050 ;//0.1050为轮子直径
 	
  	if ( WheelID == 0 )
 	{
