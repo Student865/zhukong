@@ -3,6 +3,8 @@
 #include "M_Func.h"
 #include "M_Sys.h"
 
+#include "all.h"
+
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
 /* Private macro -------------------------------------------------------------*/
@@ -21,8 +23,9 @@ struct M_Type MainMenu[M_NUM]=
 	{"4.SRAM",          M_UFunc,                sys_SRAM,           {MainMenu, NULL} },
 	{"5.M3508",         M_SMenu,                NULL,               {MainMenu, M_FastDog} },
 	{"6.Servo",         M_UFunc,                sys_servo,          {MainMenu, NULL} },
-	{"7.GPS ",          M_SMenu,                NULL,               {MainMenu, M_System} },
-	{" ",               M_Empty,                NULL,               {MainMenu, NULL} },
+	//{"7.Run a line1",    M_UFunc,               Run_Line_Trial1,     {MainMenu, NULL} },   //测试用,可以删
+	{"7.GPS",           M_SMenu,                NULL,               {MainMenu, M_System} },
+	//{"8.Run a line",    M_UFunc,                Run_Line_Trial,     {MainMenu, NULL} },  //测试用。可以删
 };
 //用来放系统配置函数
 struct M_Type M_System[M_NUM]=

@@ -201,22 +201,22 @@ void PID_Init(void)
 	PID_struct_init(&pid_y_loc, DELTA_PID, 9600, 9600,
 								0.80f,	0.003f,	0.000f	);  //4 motos angular location closeloop.}
 	
-		PID_struct_init(&pid_spd[0], DELTA_PID, 8000, 16384,
+		PID_struct_init(&pid_spd[0], DELTA_PID, 16384,8000,       //16384为C620最大电流
 								24.0f,	1.2f,	0.02f	);  //4 motos angular rate closeloop.  0.80f,	0.03f,	0.0015f	(超调)
-	PID_struct_init(&pid_loc[0], DELTA_PID, 9600, 9600,
+	PID_struct_init(&pid_loc[0], DELTA_PID, 2600, 9600,         //原来maxout为9600????????
 								0.80f,	0.003f,	0.000f	);  //4 motos angular location closeloop.}
-	PID_struct_init(&pid_spd[1], DELTA_PID, 8000, 16384,
+	PID_struct_init(&pid_spd[1], DELTA_PID, 16384,8000,
 								24.0f,	1.2f,	0.02f	);  //4 motos angular rate closeloop.  0.80f,	0.03f,	0.0015f	(超调)
-	PID_struct_init(&pid_loc[1], DELTA_PID, 9600, 9600,
+	PID_struct_init(&pid_loc[1], DELTA_PID, 2600, 9600,         //原来maxout为9600????????
 								0.80f,	0.003f,	0.000f	);  //4 motos angular location closeloop.}	
-	PID_struct_init(&pid_spd[2], DELTA_PID, 8000, 16384,
+	PID_struct_init(&pid_spd[2], DELTA_PID, 16384,8000,          
 								24.0f,	1.2f,	0.02f	);  //4 motos angular rate closeloop.  0.80f,	0.03f,	0.0015f	(超调)
-	PID_struct_init(&pid_loc[2], DELTA_PID, 9600, 9600,
+	PID_struct_init(&pid_loc[2], DELTA_PID, 2600, 9600,         //原来maxout为9600????????
 								0.80f,	0.003f,	0.000f	);  //4 motos angular location closeloop.}
 
-	PID_struct_init(&pid_spd[3], DELTA_PID, 8000, 16384,
+	PID_struct_init(&pid_spd[3], DELTA_PID, 16384,8000,
 								24.0f,	1.2f,	0.02f	);  //4 motos angular rate closeloop.  0.80f,	0.03f,	0.0015f	(超调)
-	PID_struct_init(&pid_loc[3], DELTA_PID, 9600, 9600,
+	PID_struct_init(&pid_loc[3], DELTA_PID, 2600, 9600,         //原来maxout为9600????????
 								0.80f,	0.003f,	0.000f	);  //4 motos angular location closeloop.}	
 }
 
