@@ -511,6 +511,16 @@
               <FileType>1</FileType>
               <FilePath>..\HARDWARE\motor.c</FilePath>
             </File>
+            <File>
+              <FileName>handle.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\handle.c</FilePath>
+            </File>
+            <File>
+              <FileName>handle.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\handle.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

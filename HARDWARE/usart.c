@@ -432,9 +432,9 @@ void USART_Config(void)
 	
 	DMA_InitStructure.DMA_Channel = USART6_DMA_CHANNEL;
 	DMA_InitStructure.DMA_PeripheralBaseAddr = (USART6_BASE+0x04);
-	DMA_InitStructure.DMA_Memory0BaseAddr = (u32)Gyro_RxBuffer;
+	DMA_InitStructure.DMA_Memory0BaseAddr = (u32)Handle_RxBuffer;
 	DMA_InitStructure.DMA_DIR = DMA_DIR_PeripheralToMemory;
-	DMA_InitStructure.DMA_BufferSize = Gyro_RxBufferSize;
+	DMA_InitStructure.DMA_BufferSize = Handle_RxBufferSize;
 	DMA_InitStructure.DMA_PeripheralInc = DMA_PeripheralInc_Disable;
 	DMA_InitStructure.DMA_MemoryInc = DMA_MemoryInc_Enable;
 	DMA_InitStructure.DMA_PeripheralDataSize = DMA_PeripheralDataSize_Byte;
@@ -467,64 +467,65 @@ void USART_Config(void)
 #endif
 #endif
 }
-
-//void Handle_USART_DMA_EN(void)
-//{
-//#ifdef BSP_USING_USART1_DMA
-//	uint8_t handle_start, j;
-//	uint8_t handle_temp[Handle_RxBufferSize] = {0};
-//	
-//	handle_start = 0;
-//	j = 0;
-//	while (!handle_start)
-//	{
-//		if (j == 0)
-//		{
-//			handle_temp[j] = USART_GetByte(USART1);
-//			if (handle_temp[j] == 0xAA)
-//			{
-//				j = 1;
-//				handle_temp[j] = USART_GetByte(USART1);
-//				if (handle_temp[j] == 0xBB)
-//					j = 2;
-//				else
-//					j = 0;
-//			}
-//			else
-//				j = 0;
-//		}
-//		else
-//		{
-//			handle_temp[j++] = USART_GetByte(USART1);
-//			switch (j)
-//			{
-//				case 11:
-//					if (handle_temp[10] != 0xCC)
-//						j = 0;
-//					break;
-//				case 12:
-//					if (handle_temp[11] != 0xDD)
-//						j = 0;
-//					else
-//					{
-//						handle_start = 1;
-//						while (1)
-//						{
-//							if (USART_GetFlagStatus(USART1, USART_FLAG_RXNE) == SET)
-//							{
-//								break;
-//							}
-//						}
-//						DMA_Cmd(USART1_DMA_STREAM, ENABLE);
-//					}
-//					break;
-//				default:
-//					break;
-//			}
-//		}
-//	}
-//#endif	
-//}
+/*
+void Handle_USART_DMA_EN(void)
+{
+#ifdef BSP_USING_USART1_DMA
+	uint8_t handle_start, j;
+	uint8_t handle_temp[Handle_RxBufferSize] = {0};
+	
+	handle_start = 0;
+	j = 0;
+	while (!handle_start)
+	{
+		if (j == 0)
+		{
+			handle_temp[j] = USART_GetByte(USART1);
+			if (handle_temp[j] == 0xAA)
+			{
+				j = 1;
+				handle_temp[j] = USART_GetByte(USART1);
+				if (handle_temp[j] == 0xBB)
+					j = 2;
+				else
+					j = 0;
+			}
+			else
+				j = 0;
+		}
+		else
+		{
+			handle_temp[j++] = USART_GetByte(USART1);
+			switch (j)
+			{
+				case 11:
+					if (handle_temp[10] != 0xCC)
+						j = 0;
+					break;
+				case 12:
+					if (handle_temp[11] != 0xDD)
+						j = 0;
+					else
+					{
+						handle_start = 1;
+						while (1)
+						{
+							if (USART_GetFlagStatus(USART1, USART_FLAG_RXNE) == SET)
+							{
+								break;
+							}
+						}
+						DMA_Cmd(USART1_DMA_STREAM, ENABLE);
+					}
+					break;
+				default:
+					break;
+			}
+		}
+	}
+#endif	
+}
+*/
 
 void Gyro_USART_DMA_EN(void)
 {
@@ -841,36 +842,13 @@ void UART5_IRQHandler(void)
 #ifdef BSP_USING_USART6
 #ifdef BSP_USING_USART6_DMA
 
-//u16 Gyro_Total;
-float Gyro_Angle_Total;
-bool iscorrectdata = true;
-float lostdata = 0.0;
-//float Gyro_Radian_Total;
 void USART6_DMA_IRQHandler(void)
 {
 	if (DMA_GetITStatus(USART6_DMA_STREAM, USART6_DMA_IT_TC) == SET)
-	{	
-		if(Gyro_RxBuffer[0] != 0x55) 
-		{
-			iscorrectdata = false;
-			lostdata = Gyro_Angle_Total;
-			DMA_ClearITPendingBit(USART6_DMA_STREAM, USART6_DMA_IT_TC);
-			DMA_Cmd(USART6_DMA_STREAM, DISABLE);
-			Gyro_USART_DMA_EN();
-			return;
-		}
-		if(!iscorrectdata)
-		{	LCD_printf(0,6+36*4,300,24,24,"LOSTDATA!!!!");LCD_printf(0,6+36*5,300,24,24,"LOSTDATA!!!!");}
-		
-		Gyro_Angle_Total = ((Gyro_RxBuffer[7] << 8) | Gyro_RxBuffer[6])/32768.0f*180.0f + lostdata;
-		if(Gyro_Angle_Total > 180.0f)
-			Gyro_Angle_Total -= 360;
-		//Encoder_Update();
-		
-		//GPS_Update();
-		
+	{
 		DMA_ClearITPendingBit(USART6_DMA_STREAM, USART6_DMA_IT_TC);
 	}
+	
 }
 #else
 char TITLE1=0xaa;

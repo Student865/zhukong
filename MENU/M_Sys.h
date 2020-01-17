@@ -22,6 +22,8 @@ void sys_loc3508(void);
 void sys_spd3508(void);
 void sys_servo(void);
 
+void sys_handle();
+
 #endif 
 
 /**********************************END OF FILE*********************************/

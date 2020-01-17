@@ -893,3 +893,82 @@ void sys_GPS()
 		}
 		
 }
+
+///////////////////////////
+
+void sys_handle()
+{
+	u8 i=1;
+	u8 key_value , is_key = 0;
+	LCD_Clear(WHITE);
+	LCD_printf(0,6+36*0,300,24,24,"Press OK, turn into Handle Mode");
+	while(i)
+	{
+		if (Is_USART_Key_Receive)
+		{
+			Is_USART_Key_Receive = 0;
+			key_value = Key_RxBuffer[0];
+			if (key_value != keyempty1)
+				is_key = 1;
+		}
+		if (is_key)
+		{
+			is_key = 0;
+			switch(key_value)
+			{	
+				case keyOK : i=0;
+									   break;
+				case keyback : return;
+			}
+		}
+	}
+	i=0;
+	u8 j=0;
+	while(1)
+	{
+		if (Is_USART_Key_Receive)
+		{
+			Is_USART_Key_Receive = 0;
+			key_value = Key_RxBuffer[0];
+			if (key_value != keyempty1)
+				is_key = 1;
+		}
+		if (is_key)
+		{
+			is_key = 0;
+			switch(key_value)
+			{	
+				case keyback : return;
+			}
+		}
+		
+//		switch(Handle_RxBuffer[0])
+//		{
+//			case 'C': {
+//									i++;
+//									Handle_RxBuffer[0]=0;
+//									break;
+//								}				
+//			case 'D': {
+//									i--;
+//									Handle_RxBuffer[0]=0;
+//									break;
+//								}	
+//			case 'A': {
+//									j++;
+//									Handle_RxBuffer[0]=0;
+//									break;
+//								}	
+//			case 'B': {
+//									j--;
+//									Handle_RxBuffer[0]=0;
+//									break;
+//								}	
+//		}
+		delay_ms(10);
+		LCD_Clear(WHITE);
+		LCD_printf(15+i,6+36*2+j,300,24,24,"qwert");
+		//LCD_printf(20+i,16+36*2+j,300,24,24,"_");//位置要调整
+	}
+
+}

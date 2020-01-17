@@ -22,7 +22,7 @@ struct M_Type MainMenu[M_NUM]=
 	{"5.M3508",         M_SMenu,                NULL,               {MainMenu, M_FastDog} },
 	{"6.Servo",         M_UFunc,                sys_servo,          {MainMenu, NULL} },
 	{"7.GPS ",          M_SMenu,                NULL,               {MainMenu, M_System} },
-	{" ",               M_Empty,                NULL,               {MainMenu, NULL} },
+	{"8.Handle ",       M_UFunc,                sys_handle,         {MainMenu, NULL} },
 };
 //用来放系统配置函数
 struct M_Type M_System[M_NUM]=

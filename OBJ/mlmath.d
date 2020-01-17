@@ -1,2 +1,2 @@
 ..\obj\mlmath.o: ..\DMP\mllite\mlmath.c
-..\obj\mlmath.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
+..\obj\mlmath.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h

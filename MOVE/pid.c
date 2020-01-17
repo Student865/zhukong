@@ -22,8 +22,8 @@ int set_x_loc;
 int set_y_loc;
 
 
-int Mode[4] = {	3,//main
-								3,//angle
+int Mode[4] = {	Location_Mode,//main
+								Location_Mode,//angle
 								Location_Mode,//side1
 								Location_Mode};//side2
 
@@ -176,19 +176,19 @@ void PID_02(void){PID_DJI_Handler(1);}
 void PID_03(void){PID_DJI_Handler(2);}
 void PID_04(void){PID_DJI_Handler(3);}
 
-void PID_X(void)
-{
-	PID_DJI(&pid_x_loc, ball_x_loc, set_x_loc);
-	PID_DJI(&pid_x_spd, ball_x_spd, pid_x_loc.delta_out);
-	set_loc[2]=pid_x_spd.delta_out;
-}
+//void PID_X(void)
+//{
+//	PID_DJI(&pid_x_loc, ball_x_loc, set_x_loc);
+//	PID_DJI(&pid_x_spd, ball_x_spd, pid_x_loc.delta_out);
+//	set_loc[2]=pid_x_spd.delta_out;
+//}
 
-void PID_Y(void)
-{
-	PID_DJI(&pid_y_loc, ball_y_loc, set_y_loc);
-	PID_DJI(&pid_y_spd, ball_y_spd, pid_y_loc.delta_out);
-	set_loc[3]=pid_y_spd.delta_out;
-}
+//void PID_Y(void)
+//{
+//	PID_DJI(&pid_y_loc, ball_y_loc, set_y_loc);
+//	PID_DJI(&pid_y_spd, ball_y_spd, pid_y_loc.delta_out);
+//	set_loc[3]=pid_y_spd.delta_out;
+//}
 
 void PID_Init(void)
 {	

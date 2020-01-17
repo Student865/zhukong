@@ -8,7 +8,7 @@
 #include <string.h>
 
 #define Key_RxBufferSize 1
-#define Handle_RxBufferSize 12
+#define Handle_RxBufferSize 1
 #define Gyro_RxBufferSize 11
 #define OMV_RxBufferSize 10
 #define QR_Code_RxBufferSize 11
@@ -36,7 +36,7 @@ extern int json_handle_flag;
 #endif
 
 #ifdef BSP_USING_USART6
-//	#define BSP_USING_USART6_DMA
+	#define BSP_USING_USART6_DMA
 #endif
 
 #ifdef BSP_USING_USART1
@@ -154,7 +154,7 @@ extern int json_handle_flag;
 #endif
 
 #ifdef BSP_USING_USART6
-	#define USART6_BAUDRATE                    115200
+	#define USART6_BAUDRATE                    9600
 
 	#define USART6_RX_GPIO_PORT                GPIOG
 	#define USART6_RX_GPIO_CLK                 RCC_AHB1Periph_GPIOG

@@ -29,7 +29,7 @@ void Gyro_Init(void)
 				switch(key_value)
 					{		
 							case keyOK :
-								i=1;
+								i=1;//Ìø³öÑ­»·
 								MOSI_CMD = GYRO_INIT;
 								Write_Database(M_G_CMD_ID);
 								break;

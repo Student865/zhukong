@@ -1,4 +1,6 @@
- #include "all.h"
+#ifndef __ROUTE_H
+#define __ROUTE_H
+#include "all.h"
  
  typedef struct
 {
@@ -19,6 +21,6 @@ void Wheel_Vel(double vel,double direction,double omega,double pose_angle);
 void set_motor(struct wheel Wheel);
 
 
-
+#endif
 
  
